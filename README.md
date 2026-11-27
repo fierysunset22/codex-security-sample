@@ -47,3 +47,14 @@ npm run preview
 `npm run build` checks the TypeScript and uses Vite to bundle the app into static HTML, JavaScript, and CSS in `dist/`. Run it to verify the app builds, before previewing it, or as part of deployment. Your hosting service can run the build during deployment. You can push source changes to GitHub without building first.
 
 `npm run preview` serves the files already built into `dist/` so you can check the production build locally. Rebuild after any source changes you want to see in the preview.
+
+### Run the local sample server
+
+The local server requires Node.js 24 or later and listens on `127.0.0.1:4317`.
+
+```sh
+npm ci
+npm run server
+```
+
+The server initializes an in-memory sample database. The React app can be run separately with `npm run dev`.
