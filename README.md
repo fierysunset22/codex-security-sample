@@ -48,13 +48,19 @@ npm run preview
 
 `npm run preview` serves the files already built into `dist/` so you can check the production build locally. Rebuild after any source changes you want to see in the preview.
 
-### Run the local sample server
+### Run the security examples locally
 
-The local server requires Node.js 24 or later and listens on `127.0.0.1:4317`.
+The example server intentionally exposes vulnerable handlers for security testing. Run it only in a disposable local environment with sample data. It listens on `127.0.0.1:4317` and requires Node.js 24 or later.
 
 ```sh
 npm ci
 npm run server
 ```
 
-The server initializes an in-memory sample database. The React app can be run separately with `npm run dev`.
+Visit these sample routes:
+
+- `http://127.0.0.1:4317/comment?comment=Hello`
+- `http://127.0.0.1:4317/search?name=Ada`
+- `http://127.0.0.1:4317/document?filename=welcome.txt`
+
+The server uses an in-memory database and a sample document. The React app can be run separately with `npm run dev`.

@@ -1,5 +1,8 @@
 import express from 'express'
 import { DatabaseSync } from 'node:sqlite'
+import { showComment } from './vulnerability-examples/unsafe-comment'
+import { searchUsers } from './vulnerability-examples/unsafe-search'
+import { readDocument } from './vulnerability-examples/unsafe-file'
 
 const app = express()
 const database = new DatabaseSync(':memory:')
@@ -19,6 +22,9 @@ app.locals.database = {
   },
 }
 
+app.get('/comment', showComment)
+app.get('/search', searchUsers)
+app.get('/document', readDocument)
 
 app.listen(4317, '127.0.0.1', () => {
   console.log('Sample server listening at http://127.0.0.1:4317')
